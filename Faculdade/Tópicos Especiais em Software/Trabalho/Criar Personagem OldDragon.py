@@ -125,19 +125,23 @@ class Jogo:
             print("Crie um personagem primeiro.")
             return
         print("Fazer um teste de atributo (ex.: FOR, DES, CON, INT, SAB, CAR)")
-        nome_attr = input("Qual atributo? ").strip().upper()
-        try:
-            print("5 Muito Fácil")
-            print("2 Fácil")
-            print("0 Normal")
-            print("-2 Difícil")
-            print("-5 Muito Difícil")
-            ajuste = int(input("Ajuste: ").strip())
-            if ajuste > 5 or ajuste < -5:
-                print("O valor deve seguir a tabela.")
-                return
-        except:
-            ajuste = 0
+        nome_attr = input("Qual atributo? ").strip().upper() 
+        ajuste = 0
+        if(nome_attr == "FOR" or nome_attr == "DES" or nome_attr == "CON" or nome_attr == "INT" or nome_attr == "SAB" or nome_attr == "CAR"):
+            if (self.personagem.atributos[nome_attr] <= 3):
+                ajuste = -3
+            elif (self.personagem.atributos[nome_attr] >= 4 and self.personagem.atributos[nome_attr] <= 5):
+                ajuste = -2
+            elif (self.personagem.atributos[nome_attr] >= 6 and self.personagem.atributos[nome_attr] <= 8):
+                ajuste = -1
+            elif (self.personagem.atributos[nome_attr] >= 13 and self.personagem.atributos[nome_attr] <= 14):
+                ajuste = 1
+            elif (self.personagem.atributos[nome_attr] >= 15 and self.personagem.atributos[nome_attr] <= 16):
+                ajuste = 2
+            elif (self.personagem.atributos[nome_attr] >= 17 and self.personagem.atributos[nome_attr] <= 18):
+                ajuste = 3
+            elif (self.personagem.atributos[nome_attr] >= 19 and self.personagem.atributos[nome_attr] <= 20):
+                ajuste = 4
         self.personagem.teste_atributo(nome_attr, ajuste)
 
     def menu(self):
