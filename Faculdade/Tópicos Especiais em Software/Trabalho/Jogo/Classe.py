@@ -1,0 +1,2 @@
+
+CLASSES = ["guerreiro", "mago", "ladrão"]
