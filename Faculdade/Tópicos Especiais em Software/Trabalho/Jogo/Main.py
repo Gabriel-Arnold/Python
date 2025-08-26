@@ -22,7 +22,7 @@ class Jogo:
         nome = input("Nome do personagem: ").strip()
         raca = ""
         while True:
-            raca = input("Raça (Humano, Elfo, Anão, Halfling...): ").strip()
+            raca = input("Raça (Humano, Elfo, Anão, Halfling, Gnomo, Meioelfo): ").strip()
             if raca.lower() in Raça.RAÇAS:
                 if(raca.lower() == "humano"):
                     raca = Raça.humano()
@@ -30,17 +30,33 @@ class Jogo:
                 elif(raca.lower() == "elfo"):
                     raca = Raça.elfo()
                     break
+                elif(raca.lower() == "anão"):
+                    raca = Raça.anão()
+                    break
+                elif(raca.lower() == "halfling"):
+                    raca = Raça.halfling()
+                    break
+                elif(raca.lower() == "gnomo"):
+                    raca = Raça.gnomo()
+                    break
+                elif(raca.lower() == "meioelfo"):
+                    raca = Raça.meioelfo()
+                    break
             else:
                 print("Raça inválida. Tente de novo.")
         classe = ""
         while True:
-            classe = input("Classe (Guerreiro, Clérigo, Mago, Ladrão...): ").strip()
+            classe = input("Classe (Guerreiro, Mago, Ladrão): ").strip()
             if classe.lower() in Classe.CLASSES:
+                if(classe.lower() == "guerreiro"):
+                    classe = Classe.Guerreiro()
+                elif(classe.lower() == "ladrão"):
+                    classe = Classe.Ladrão()
+                elif(classe.lower() == "mago"):
+                    classe = Classe.Mago()
                 break
             else:
                 print("Classe inválida. Tente de novo.")
-
-        classe = input("Classe (Guerreiro, Clérigo, Mago, Ladrão...): ").strip()
 
         self.personagem = Personagem.Personagem(nome, raca, classe)
 
