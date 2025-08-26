@@ -75,9 +75,9 @@ class Personagem:
             return False
     def ficha(self):
         print("\n=== FICHA DO PERSONAGEM ===")
-        print(f"Nome:  {self.nome}")
-        print(f"Raça:  {self.raca}")
-        print(f"Classe:{self.classe}")
+        print(f"Nome:   {self.nome}")
+        print(f"Raça:   {self.raca.nome}")
+        print(f"Classe: {self.classe.nome}")
         print("Atributos:")
         for k in ["FOR", "DES", "CON", "INT", "SAB", "CAR"]:
             print(f"  {k}: {self.atributos[k]}")
